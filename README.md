@@ -46,5 +46,5 @@ This project contains a REST API for user management, built using Flask.
 ### PUT 
 ![PUT](./images/PUT_1.png)
 
-### DELETE Request
+### DELETE
 ![DELETE](./images/DELETE_1.png)
