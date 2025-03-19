@@ -11,7 +11,7 @@ This project contains a REST API for user management, built using Flask.
 
 2. If you want to run tests
     ```bash
-    docker-compose exec backend sh
+    docker exec -it backend sh
     ```
 
     ```bash

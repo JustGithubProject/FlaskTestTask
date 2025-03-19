@@ -7,7 +7,6 @@ class UserRepository:
         name: str,
         email: str
     ) -> int:
-        
         user = User(
             name=name,
             email=email
