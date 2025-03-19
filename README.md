@@ -28,7 +28,7 @@ This project contains a REST API for user management, built using Flask.
 ### GET Request
 ![GET](./images/GET.png)
 
-### GET by ID Request
+### GET BY ID Request
 ![GET_BY_ID](./images/GET_BY_ID.png)
 
 ### POST Request
