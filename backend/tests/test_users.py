@@ -2,6 +2,7 @@ import pytest
 
 from backend.main import app
 from backend.models import db
+from backend.utils import is_valid_email
 
 
 @pytest.fixture
@@ -43,6 +44,18 @@ def test_create_user_missing_email(client):
     assert response.status_code == 400
     data = response.get_json()
     assert data['error'] == 'Name and email required'
+    
+
+def test_create_user_invalid_email(client):
+    """
+        Tests creating a user with invalid email.
+        Expects a 400 error with the message 'Invalid email format'.
+    """
+    response = client.post('/users', json={'name': 'admin123456789', 'email': 'admin123456789'})
+    assert response.status_code == 400
+    data = response.get_json()
+    assert data['error'] == 'Invalid email format'
+    
 
 
 def test_create_user_user_exists(client):
@@ -98,6 +111,18 @@ def test_update_user_missing_email(client):
     assert response.status_code == 400
     data = response.get_json()
     assert data['error'] == 'Name and email required'
+    
+
+def test_update_user_invalid_email(client):
+    """
+        Tests updating a user with invalid email.
+        Expects a 400 error with the message 'Invalid email format'.
+    """
+    response = client.put('/users/1', json={'name': 'test_user_123333', 'email': 'test_user_123333'})
+    assert response.status_code == 400
+    data = response.get_json()
+    assert data['error'] == 'Invalid email format'
+    
 
 
 def test_update_user_user_not_found(client):

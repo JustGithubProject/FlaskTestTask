@@ -1,7 +1,9 @@
 """ File with user routes """
 from flask import Blueprint, jsonify, request
 
+from utils import is_valid_email
 from core.services import user_service
+
 
 
 user_routes = Blueprint('user_routes', __name__)
@@ -14,6 +16,10 @@ def create_user_route():
     # If name and email are missing
     if not data or 'name' not in data or 'email' not in data:
         return jsonify({'error': 'Name and email required'}), 400
+    
+    # Is the email valid?
+    if not is_valid_email(data['email']):
+        return jsonify({'error': 'Invalid email format'}), 400
     
     # Does user exist?
     user = user_service.get_user_by_email(data['email'])
@@ -48,6 +54,10 @@ def update_user_by_id_route(id: int):
     # If name and email are missing
     if not data or 'name' not in data or 'email' not in data:
         return jsonify({'error': 'Name and email required'}), 400
+    
+    # Is the email valid?
+    if not is_valid_email(data['email']):
+        return jsonify({'error': 'Invalid email format'}), 400
     
     # Does user exist?
     user = user_service.get_user_by_id(id)
