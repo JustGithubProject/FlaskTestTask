@@ -1,4 +1,4 @@
-# FlaskTestTask
+# Flask Test Task
 
 ## REST API for User Management
 
@@ -19,3 +19,9 @@ This project contains a REST API for user management, built using Flask.
     ```bash
     pytest
     ```
+
+![GET](./images/GET.png)
+![GET_BY_ID](./images/GET_BY_ID.png)
+![POST](./images/POST.png)
+![PUT](./images/PUT.png)
+![DELETE](./images/DELETE.png)
