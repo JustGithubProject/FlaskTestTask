@@ -1,5 +1,3 @@
-# Flask Test Task
-
 ## REST API for User Management
 
 This project contains a REST API for user management, built using Flask.
