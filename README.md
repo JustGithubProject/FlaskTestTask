@@ -17,5 +17,5 @@ This project contains a REST API for user management, built using Flask.
     ```
 
     ```bash
-        pytest
+    pytest
     ```
