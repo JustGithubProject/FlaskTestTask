@@ -25,6 +25,6 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 
 
 # Flask-app variables
-FLASH_HOST = '0.0.0.0'
+FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 5000
 FLASK_DEBUG = True

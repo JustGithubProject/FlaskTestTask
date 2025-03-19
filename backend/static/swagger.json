@@ -1,60 +1,71 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "User Management API",
-      "version": "1.0.0",
-      "description": "This API provides endpoints to manage users. It allows creating, retrieving, updating, and deleting user records. The API is designed for handling user-related operations in a Python Flask application."
-    },
-    "paths": {
-      "/users": {
-        "post": {
-          "summary": "Create a new user",
-          "operationId": "createUser",
-          "tags": ["Users"],
-          "responses": {
-            "201": {
-              "description": "User created successfully"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "User Management API",
+    "version": "1.0.0",
+    "description": "This API provides endpoints to manage users. It allows creating, retrieving, updating, and deleting user records."
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create a new user",
+        "operationId": "createUser",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the user"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "The email of the user"
+                  }
+                },
+                "required": ["name", "email"]
+              }
             }
           }
         },
-        "get": {
-          "summary": "Get all users",
-          "operationId": "getAllUsers",
-          "tags": ["Users"],
-          "responses": {
-            "200": {
-              "description": "List of users"
-            }
+        "responses": {
+          "201": {
+            "description": "User created successfully"
+          },
+          "400": {
+            "description": "Name and email are required or user already exists"
           }
         }
       },
-      "/users/{id}": {
-        "get": {
-          "summary": "Get user by ID",
-          "operationId": "getUserById",
-          "tags": ["Users"],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              },
-              "description": "ID of the user to retrieve"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "User details",
-              "content": {
-                "application/json": {
-                  "schema": {
+      "get": {
+        "summary": "Get all users",
+        "operationId": "getAllUsers",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "List of all users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
                     "type": "object",
                     "properties": {
                       "user_id": {
                         "type": "integer",
                         "description": "The ID of the user"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the user"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "The email of the user"
                       }
                     }
                   }
@@ -62,50 +73,124 @@
               }
             }
           }
-        },
-        "put": {
-          "summary": "Update user by ID",
-          "operationId": "updateUserById",
-          "tags": ["Users"],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              },
-              "description": "ID of the user to update"
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get user by ID",
+        "operationId": "getUserById",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID of the user to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "description": "The ID of the user"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the user"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "The email of the user"
+                    }
+                  }
+                }
+              }
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "User updated successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update user by ID",
+        "operationId": "updateUserById",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID of the user to update"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the user"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "The email of the user"
+                  }
+                },
+                "required": ["name", "email"]
+              }
             }
           }
         },
-        "delete": {
-          "summary": "Delete user by ID",
-          "operationId": "deleteUserById",
-          "tags": ["Users"],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              },
-              "description": "ID of the user to delete"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "User deleted successfully"
-            }
+        "responses": {
+          "200": {
+            "description": "User updated successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete user by ID",
+        "operationId": "deleteUserById",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID of the user to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User deleted successfully"
+          },
+          "404": {
+            "description": "User not found"
           }
         }
       }
     }
   }
-  
+}

@@ -1,4 +1,5 @@
-from repositories import UserRepository
+from models import User
+from core.repositories import UserRepository
 
 
 class UserService:
@@ -10,12 +11,16 @@ class UserService:
         self.user_repository.create_user(name, email)
     
     
-    def fetch_all_users(self):
+    def fetch_all_users(self) -> list:
         return self.user_repository.fetch_all_users()
     
     
-    def get_user_by_id(self, user_id: int):
+    def get_user_by_id(self, user_id: int) -> User:
         return self.user_repository.get_user_by_id(user_id)
+    
+    
+    def get_user_by_email(self, email: str) -> User:
+        return self.user_repository.get_user_by_email(email)
     
     
     def update_user_by_id(

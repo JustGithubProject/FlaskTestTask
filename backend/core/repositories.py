@@ -1,4 +1,4 @@
-from backend.models import User, db
+from models import User, db
 
 
 class UserRepository:
@@ -46,3 +46,6 @@ class UserRepository:
             db.session.commit()
 
     
+    
+    def get_user_by_email(self, email: str) -> User:
+        return User.query.filter_by(email=email).first()
