@@ -20,6 +20,13 @@ This project contains a REST API for user management, built using Flask.
     pytest
     ```
 
+3. Path to Swagger
+   ```bash
+   http://127.0.0.1:5000/swagger/
+   ```
+
+
+
 ### GET Request
 ![GET](./images/GET.png)
 
