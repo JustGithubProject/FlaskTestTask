@@ -4,12 +4,21 @@ This project contains a REST API for user management, built using Flask.
 
 ### To get started:
 
-1. Build and start the containers using Docker:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/JustGithubProject/FlaskTestTask.git
+   ```
+
+   ```bash
+   cd FlaskTestTask
+   ```
+
+2. Build and start the containers using Docker:
    ```bash
     docker-compose up --build
    ```
 
-2. If you want to run tests
+3. If you want to run tests
     ```bash
     docker exec -it backend sh
     ```
@@ -18,7 +27,7 @@ This project contains a REST API for user management, built using Flask.
     pytest
     ```
 
-3. Path to Swagger
+4. Path to Swagger
    ```bash
    http://127.0.0.1:5000/swagger/
    ```
