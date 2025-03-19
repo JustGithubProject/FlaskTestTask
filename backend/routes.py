@@ -21,8 +21,8 @@ def create_user_route():
         return jsonify({'error': 'User already exists'}), 400
     
     # Creating new user
-    user_service.create_user(data['name'], data['email'])
-    return jsonify({'message': 'User created'}), 201
+    user_id = user_service.create_user(data['name'], data['email'])
+    return jsonify({'message': 'User created', 'user_id': user_id}), 201
 
 
 @user_routes.route('/users', methods=['GET'])

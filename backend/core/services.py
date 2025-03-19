@@ -7,8 +7,8 @@ class UserService:
         self.user_repository = UserRepository()
     
     
-    def create_user(self, name: str, email: str):
-        self.user_repository.create_user(name, email)
+    def create_user(self, name: str, email: str) -> int:
+        return self.user_repository.create_user(name, email)
     
     
     def fetch_all_users(self) -> list:

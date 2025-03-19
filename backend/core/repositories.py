@@ -6,7 +6,7 @@ class UserRepository:
         self,
         name: str,
         email: str
-    ) -> None:
+    ) -> int:
         
         user = User(
             name=name,
@@ -15,6 +15,8 @@ class UserRepository:
         
         db.session.add(user)
         db.session.commit()
+        
+        return user.id
     
     
     def fetch_all_users(self) -> list:
