@@ -34,16 +34,16 @@ This project contains a REST API for user management, built using Flask.
 
 
 
-### GET Request
+### GET
 ![GET](./images/GET_1.png)
 
-### GET BY ID Request
+### GET BY ID
 ![GET_BY_ID](./images/GET_BY_ID_1.png)
 
-### POST Request
+### POST 
 ![POST](./images/POST_1.png)
 
-### PUT Request
+### PUT 
 ![PUT](./images/PUT_1.png)
 
 ### DELETE Request
