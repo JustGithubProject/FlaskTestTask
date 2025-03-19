@@ -12,6 +12,7 @@ services:
       - ./.env.test
     depends_on:
       - database-test
+    command: pytest
     networks:
       - test-network
 

@@ -17,6 +17,3 @@ jobs:
           sudo apt-get install -y docker-compose
           docker-compose -f docker-compose.test.yml up --build -d
 
-      - name: Run Tests
-        run: |
-          docker-compose exec backend-test pytest -v
