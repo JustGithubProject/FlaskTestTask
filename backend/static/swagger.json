@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "title": "Python Flask Test Task",
+      "title": "User Management API",
       "version": "1.0.0",
-      "description": "This is a test task for Python-Flask"
+      "description": "This API provides endpoints to manage users. It allows creating, retrieving, updating, and deleting user records. The API is designed for handling user-related operations in a Python Flask application."
     },
     "paths": {
       "/users": {

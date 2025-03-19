@@ -4,9 +4,8 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from dotenv import load_dotenv
 
 
-
-# Parsing and loading .env file
 load_dotenv()
+
 
 # Database variables
 SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
@@ -24,3 +23,8 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     }
 )
 
+
+# Flask-app variables
+FLASH_HOST = '0.0.0.0'
+FLASK_PORT = 5000
+FLASK_DEBUG = True

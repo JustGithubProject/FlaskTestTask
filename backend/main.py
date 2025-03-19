@@ -9,6 +9,9 @@ from config import (
     SQLALCHEMY_DATABASE_URI,
     SQLALCHEMY_TRACK_MODIFICATIONS,
     SWAGGER_URL,
+    FLASK_HOST,
+    FLASK_PORT,
+    FLASK_DEBUG,
     swaggerui_blueprint
 )
 
@@ -38,4 +41,4 @@ with app.app_context():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host=FLASK_HOST, port=FLASK_PORT, debug=FLASK_DEBUG)
