@@ -55,7 +55,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "user_id": {
+                      "id": {
                         "type": "integer",
                         "description": "The ID of the user"
                       },
@@ -66,6 +66,11 @@
                       "email": {
                         "type": "string",
                         "description": "The email of the user"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "The date and time when the user was created"
                       }
                     }
                   }
@@ -100,7 +105,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "user_id": {
+                    "id": {
                       "type": "integer",
                       "description": "The ID of the user"
                     },
@@ -111,6 +116,11 @@
                     "email": {
                       "type": "string",
                       "description": "The email of the user"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "The date and time when the user was created (e.g., Wed, 19 Mar 2025 13:06:08 GMT)",
+                      "example": "Wed, 19 Mar 2025 13:06:08 GMT"
                     }
                   }
                 }
